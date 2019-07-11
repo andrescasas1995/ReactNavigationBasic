@@ -117,12 +117,35 @@ const styles = StyleSheet.create({
   }
 });
 
-const AppNavigator = createStackNavigator({
-  Home,
-  About,
-  Login,
-  Profile
-});
+const AppNavigator = createStackNavigator(
+  {
+    Home: {
+      screen: Home,
+      navigationOptions: {
+        path: "home/",
+        title: "Esta es la Home"
+      }
+    },
+    About,
+    Login,
+    Profile
+  },
+  {
+    initialRouteName: "Login",
+    defaultNavigationOptions: {
+      title: "Título genérico",
+      headerTitleAllowFontScaling: true,
+      gesturesEnabled: true,
+      headerBackTitle: "Atras",
+      headerBackImage: <Text>{`<=`}</Text>
+      // header: <Text>Esto es un HEADER</Text>
+    },
+    initialRouteKey: "login",
+    initialRouteParams: {
+      nombre: "Andres Casas"
+    }
+  }
+);
 
 const AppContainer = createAppContainer(AppNavigator);
 
