@@ -127,26 +127,49 @@ const AppNavigator = createStackNavigator(
       }
     },
     About,
-    Login,
     Profile
   },
   {
-    initialRouteName: "Login",
+    initialRouteName: "Home",
     defaultNavigationOptions: {
       title: "Título genérico",
       headerTitleAllowFontScaling: true,
-      gesturesEnabled: true,
       headerBackTitle: "Atras",
-      headerBackImage: <Text>{`<=`}</Text>
+      gesturesEnabled: true
+      // headerBackImage: <Text>{`<=`}</Text>
       // header: <Text>Esto es un HEADER</Text>
     },
-    initialRouteKey: "login",
+    initialRouteKey: "home",
     initialRouteParams: {
       nombre: "Andres Casas"
+    },
+    mode: "modal",
+    cardStyle: {
+      borderWidth: 2,
+      backgroundColor: "red"
     }
   }
 );
 
-const AppContainer = createAppContainer(AppNavigator);
+const Main = createStackNavigator(
+  {
+    Main: {
+      screen: AppNavigator
+    },
+    Login: {
+      screen: Login
+    }
+  },
+  {
+    mode: "card",
+    headerMode: "none",
+    cardStyle: {
+      borderWidth: 2,
+      backgroundColor: "green"
+    }
+  }
+);
+
+const AppContainer = createAppContainer(Main);
 
 export default AppContainer;

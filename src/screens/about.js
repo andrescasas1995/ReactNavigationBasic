@@ -4,8 +4,10 @@ import { View, Text, StyleSheet, Button } from "react-native";
 
 class About extends Component {
   handlePress = () => {
-    console.log(this.props.navigation);
-    this.props.navigation.navigate("Profile");
+    this.props.navigation.navigate("Profile", {
+      name: "Andres Casas",
+      age: 24
+    });
   };
   render() {
     return (
