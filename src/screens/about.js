@@ -1,31 +1,37 @@
 import React, { Component } from "react";
-
 import { View, Text, StyleSheet, Button } from "react-native";
 
 class About extends Component {
-  handlePress = () => {
-    this.props.navigation.navigate("Profile", {
-      name: "Andres Casas",
-      age: 24
-    });
-  };
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>About</Text>
-        <Button title="Ir al Profile" onPress={this.handlePress} />
-      </View>
-    );
-  }
+
+    handlePress = () => {
+        this.props.navigation.navigate
+        (
+            "Profile",
+            {
+                name: "Andru"
+            }
+        );
+    }
+
+    render(){
+        return(
+            <View style={styles.container}>
+                <Text>About</Text>
+                <Button 
+                    title="Ir al profile"
+                    onPress={this.handlePress}/>
+            </View>
+        )
+    }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "white",
-    alignItems: "center",
-    justifyContent: "center"
-  }
+    container: {
+        flex: 1,
+        backgroundColor: 'white',
+        alignItems: 'center',
+        justifyContent: 'center'
+    }
 });
 
 export default About;
